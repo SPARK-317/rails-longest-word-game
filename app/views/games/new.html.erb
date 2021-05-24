@@ -1,0 +1,16 @@
+<h3>Make a word with letters below</h3>
+<ul>
+<% @letters.each do |letter| %>
+  <li><%= letter %></li>
+<% end %>
+</ul>
+
+<form action="/score" method="post" >
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <label for="word">What's the longest word you can find?</label>
+  <br>
+  <input type="text" name="word">
+  <input type="text" name="grid"  type="hidden" value="<%= @letters %>" style="display: none;">
+  <input type="submit" name="click">
+</form>
+
